@@ -19,4 +19,4 @@ const firstSchema = new Schema({
 },
     { timestamps: true })
 
-module.exports = model('math', firstSchema)
+module.exports = model('maths', firstSchema)

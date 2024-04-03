@@ -6,6 +6,6 @@ const middleware = require('../middlewares/math.middleware');
 
 
 router.route('/')
-    .post(middleware.firstValidation, controller.createFirst, controller.createFirst1);
+    .post(middleware.firstValidation, controller.createFirst1, controller.createFirst);
 
 module.exports = router;

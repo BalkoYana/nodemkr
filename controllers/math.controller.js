@@ -15,19 +15,15 @@ async function createFirst1(req, res, next) {
         const res1 = [];
         for (let i = 0; i < x.length; i++) {
             res1[i] = scalarProduct * x[i];
+
         }
 
-
-        const savedResult = await mathService.createFirst({ x, y, res: res1 });
         res.locals.res = res1;
         res.json({
             firstSchema: req.body,
             res: res1,
-            savedResult
 
         });
-
-        next();
     } catch (err) {
         next(err);
     }
@@ -39,6 +35,18 @@ async function createFirst(req, res, next) {
         res.status(200).json({
             status: 200,
             data: newFirst,
+        });
+    } catch (err) {
+        next(createError.InternalServerError(err.message));
+    }
+};
+async function createSecond(req, res, next) {
+    try {
+        const newSecond = await mathService.createSecond(req.body);
+
+        res.status(200).json({
+            status: 200,
+            data: newSecond,
         });
     } catch (err) {
         next(createError.InternalServerError(err.message));
@@ -59,23 +67,13 @@ async function createSecond2(req, res, next) {
             res: result
         });
 
-        next();
+
     } catch (err) {
         next(err);
     }
 };
-async function createSecond(req, res, next) {
-    try {
-        const newSecond = await mathService.createSecond(req.body);
 
-        res.status(200).json({
-            status: 200,
-            data: newSecond,
-        });
-    } catch (err) {
-        next(createError.InternalServerError(err.message));
-    }
-};
+
 module.exports = {
     createFirst,
     createSecond,
