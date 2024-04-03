@@ -1,16 +1,16 @@
 const Joi = require('joi');
 
 const FirstCreateSchema = Joi.object({
-    x: Joi.string()
+    x: Joi.array()
         .min(2)
-        .max(60)
+        .max(3)
         .required(),
     res: Joi.number()
     ,
 
-    y: Joi.number()
-        .min(1)
-        .max(131)
+    y: Joi.array()
+        .min(2)
+        .max(3)
         .required(),
 
 

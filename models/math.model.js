@@ -2,17 +2,18 @@ const { Schema, model } = require('mongoose');
 
 const firstSchema = new Schema({
     x: {
-        type: Number,
+        type: [Number],
         required: true,
         trim: true,
     },
     y: {
-        type: Number,
+        type: [Number],
         required: true,
         trim: true,
     },
+
     res: {
-        type: Number,
+        type: [Number],
         trim: true,
     }
 },

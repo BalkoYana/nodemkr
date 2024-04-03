@@ -2,7 +2,8 @@ const express = require('express');
 const mongoose = require('mongoose');
 const createError = require('http-errors');
 const { port, mongodb_url } = require('./config');
-const router = require('./routes/apartments.route');
+const router = require('./routes/math.route');
+const router1 = require('./routes/math1.route');
 
 mongoose.connect(mongodb_url).then(() => {
     console.log('Mongo DB connected');
@@ -10,7 +11,7 @@ mongoose.connect(mongodb_url).then(() => {
 
 const app = express();
 
-
+app.use(express.json());
 
 app.use((req, res, next) => {
     console.log(`[${new Date().toUTCString()}] ${req.method}: ${req.path}`);
@@ -32,6 +33,7 @@ app.get('/', (req, res) => {
 
 
 app.use('/math', router);
+app.use('/math1', router1);
 
 
 app.use((req, res, next) => {
