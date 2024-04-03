@@ -56,7 +56,7 @@ async function createSecond2(req, res, next) {
     try {
         const { x, n } = req.body;
         let result = 0;
-        for (let i = 0; i < n; i++) {
+        for (let i = 1; i < n; i++) {
             result += Math.pow(Math.sin(x), i);
         }
 
