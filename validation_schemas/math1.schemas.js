@@ -6,7 +6,6 @@ const SecondCreateSchema = Joi.object({
         .required(),
     n: Joi.number()
         .min(1)
-        .max(60)
         .required(),
     res: Joi.number()
     ,
